@@ -1,30 +1,34 @@
-const Router = require('./router')
+const Renderer = require('./render')
 
-/**
- * Example of how router can be used in an application
- *  */
-addEventListener('fetch', event => {
-    event.respondWith(handleRequest(event.request))
+const r = new Renderer({
+  'title': 'HTML Router Template',
+  'desc': 'HTML Template for the router worker',
+  'author': 'Nikz Jon',
+  'content': {
+    'home': {
+      'heading': 'Home',
+      'desc': 'This the home page of the template'
+    },
+    'features': {
+      'heading': 'Features',
+      'desc': 'These are the features of the template'
+    },
+    'contact': {
+      'heading': 'Contact',
+      'desc': 'This is the contact page of the template'
+    },
+  },
+  'menu': [
+    { 'name': 'Home', 'url': '' },
+    { 'name': 'Features', 'url': 'features' },
+    { 'name': 'Contact', 'url': 'contact' }
+  ]
 })
 
-function handler(request) {
-    const init = {
-        headers: { 'content-type': 'application/json' },
-    }
-    const body = JSON.stringify({ some: 'json' })
-    return new Response(body, init)
-}
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request))
+})
 
 async function handleRequest(request) {
-    const r = new Router("/api/v1") // The base path is passed as parameter
-    // Replace with the approriate paths and handlers
-    r.get('.*/bar', () => new Response('responding for /bar'))
-    r.get('.*/foo', req => handler(req))
-    r.post('.*/foo.*', req => handler(req))
-    r.get('/demos/router/foo', req => fetch(req)) // return the response from the origin
-
-    r.get('/', () => new Response('Hello worker!')) // return a default message for the root route
-
-    const resp = await r.route(request)
-    return resp
+  return r.render(request)
 }
