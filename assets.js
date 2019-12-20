@@ -1,5 +1,4 @@
-const CSS = {
-  custom: `
+const CSS = `
 /*
  * Globals
  */
@@ -161,19 +160,10 @@ body {
     width: 700px;
   }
 }
-  `,
-  loadCSS: function() {
-    return this.custom
-  }
-}
+  `
 
-const JS = {
-  custom: `
+const JS = `
 /* Write your custom javascript here */
-  `,
-  loadJS: function() {
-    return this.custom
-  }
-}
+  `
 
 module.exports = { CSS, JS }

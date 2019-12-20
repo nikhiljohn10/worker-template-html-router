@@ -1,4 +1,4 @@
-const { CSS, JS }= require('./assets')
+const { CSS, JS } = require('./assets')
 
 // HTML Template
 
@@ -13,12 +13,11 @@ let Template = {
     <meta name="description" content="` + desc + `">
     <meta name="author" content="` + author + `">
     <link rel="icon" href="https://getbootstrap.com/docs/3.4/favicon.ico">
-    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/cover/">
     <title>` + title + `</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/thekondrashov/ie10-viewport@1.0/css/ie10-viewport.min.css" rel="stylesheet">
     <style type="text/css">
-` + CSS.loadCSS() + `
+` + CSS + `
     </style>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -48,13 +47,11 @@ let Template = {
           <div class="inner cover">
             <h1 class="cover-heading">` + content.heading + `</h1>
             <p class="lead">` + content.desc + `</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
+            ` + lmBtn(content.url) + `
           </div>
           <footer class="mastfoot mt-auto">
               <div class="inner">
-                <p>` + title + ` with <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="#">` + author + `</a>.</p>
+                <p>` + title + ` with <a target="blank" href="https://getbootstrap.com/">Bootstrap</a>, by <a target="blank" href="#">` + author + `</a>.</p>
               </div>
             </footer>
         </div>
@@ -68,14 +65,16 @@ let Template = {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/thekondrashov/ie10-viewport@1.0/js/ie10-viewport.min.js"></script>
     <script type="text/javascript">
-` + JS.loadJS() + `
+` + JS + `
     </script>
 </body>
 </html>`,
 
-// Loader Function
+  // Loader Function
   loadHTML: function(obj) {
-    return this.head(obj.title, obj.desc, obj.author) + this.body(obj.title, obj.author, obj.content[obj.page], obj.menu, obj.page) + this.end()
+    return this.head(obj.title, obj.desc, obj.author) +
+      this.body(obj.title, obj.author, obj.content[obj.page], obj.menu, obj.page) +
+      this.end()
   }
 }
 
@@ -92,5 +91,10 @@ const menuLoader = (m, p) => {
   })
   return i
 }
+
+const lmBtn = (u) => u === ''?u:`
+            <p class="lead">
+              <a href="` + u + `" class="btn btn-lg btn-default">Learn more</a>
+            </p>`
 
 module.exports = Template
