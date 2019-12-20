@@ -15,15 +15,21 @@ const r = new Renderer({
       desc: 'These are the features of the template',
       url: '#'
     },
+    contribute: {
+      heading: 'Contribute',
+      desc: 'You can contribute to this project in Github by clicking "Learn More"',
+      url: 'https://github.com/nikhiljohn10/worker-template-html-router'
+    },
     contact: {
       heading: 'Contact',
       desc: 'This is the contact page of the template',
-      url: '#'
+      url: 'https://github.com/nikhiljohn10'
     },
   },
   menu: [
     { name: 'Home', url: '' },
     { name: 'Features', url: 'features' },
+    { name: 'Contribute', url: 'contribute' },
     { name: 'Contact', url: 'contact' }
   ]
 })

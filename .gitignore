@@ -2,6 +2,7 @@ node_modules/
 worker/
 .cargo-ok
 package-lock.json
+dist/
 
 # OS generated files #
 ######################

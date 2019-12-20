@@ -1,11 +1,13 @@
-## Router
+## HTML Router
 
-Selects the logic to respond to requests based on the `request` method and URL. Can be used with REST APIs or apps that require basic routing logic.
+Using a JSON object, the worker creates the routes and load corresponding HTML template which uses Bootstrap framework.
 
-[`index.js`](https://github.com/cloudflare/worker-template-router/blob/master/router.js) is the content of the Workers script.
+`index.js` is the content of the Workers script.
+`render.js` is the HTML rendering engine.
+`template.js` is the HTML template used.
+`assets.js` contains the custom CSS and JS for the HTML.
 
-Live Demos are hosted on `workers-tooling.cf/demos/router`:
-[Demo /bar](http://workers-tooling.cf/demos/router/bar) | [Demo /foo](http://workers-tooling.cf/demos/router/foo)
+[Live Demo](https://html-router.jwala.workers.dev)
 
 #### Wrangler
 
@@ -26,3 +28,6 @@ wrangler publish
 #### Serverless
 
 To deploy using serverless add a [`serverless.yml`](https://serverless.com/framework/docs/providers/cloudflare/) file.
+
+---
+Parent Repo: [Router Template](https://github.com/cloudflare/worker-template-router)

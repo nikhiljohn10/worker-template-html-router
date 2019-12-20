@@ -1,6 +1,5 @@
-name = "router"
+name = "html-router"
 type = "webpack"
-
 account_id = ""
 workers_dev = true
 route = ""

@@ -51,7 +51,7 @@ let Template = {
           </div>
           <footer class="mastfoot mt-auto">
               <div class="inner">
-                <p>` + title + ` with <a target="blank" href="https://getbootstrap.com/">Bootstrap</a>, by <a target="blank" href="#">` + author + `</a>.</p>
+                <p>` + title + ` with <a target="blank" href="https://getbootstrap.com/">Bootstrap</a>, by <a target="blank" href="https://github.com/nikhiljohn10">` + author + `</a>.</p>
               </div>
             </footer>
         </div>
