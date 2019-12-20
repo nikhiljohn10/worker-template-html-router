@@ -3,8 +3,11 @@
 Using a JSON object, the worker creates the routes and load corresponding HTML template which uses Bootstrap framework.
 
 `index.js` is the content of the Workers script.
+
 `render.js` is the HTML rendering engine.
+
 `template.js` is the HTML template used.
+
 `assets.js` contains the custom CSS and JS for the HTML.
 
 [Live Demo](https://html-router.jwala.workers.dev)
